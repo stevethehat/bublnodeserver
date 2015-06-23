@@ -22,7 +22,7 @@ function getCollection(callback){
 	);
 }
 
-router.get('/', function(request, response, next) {
+function getObjects(callback){
 	getCollection(
 		function(collection){
 			console.log('got collection ' + collection);
@@ -31,52 +31,52 @@ router.get('/', function(request, response, next) {
 					if(error){
 						
 					} else {
-						response.send(JSON.stringify(results, null, 4));
+						callback(results);
 					}					
 				}	
 			);
 		}
 	);
-});
+}
 
-router.get('/:object_id', function(request, response, next) {
+function getObject(id, depth, callback){
 	getCollection(
 		function(collection){
 			console.log('got collection ' + collection);
-			collection.find({ 'id': request.params.object_id }).toArray(
+			collection.find({ 'id': id }).toArray(
 				function(error, results){
-					response.send(JSON.stringify(results[0]));
+					var object = results[0];
+					if(depth === 0){
+						callback(object);					
+					} else {
+						addChildObjects(object, depth, 
+							function(object){
+								callback(object);						
+							}
+						);
+					}
 				}
 			);
 		}
 	);
-});
+}
 
-router.get('/:object_id/getchildren', function(request, response, next) {
-	getCollection(
-		function(collection){
-			console.log('got collection ' + collection);
-			collection.find({ 'id': request.params.object_id }).toArray(
-				function(error, results){
-					response.send(JSON.stringify(results[0]));
-				}
-			);
-		}
-	);
-});
+function addChildObjects(object, depth, callback){
+	object['children'] = [];
 
-router.get('/:object_id/getdescendents', function(request, response, next) {
-	getCollection(
-		function(collection){
-			console.log('got collection ' + collection);
-			collection.find({ 'id': request.params.object_id }).toArray(
-				function(error, results){
-					response.send(JSON.stringify(results[0]));
-				}
-			);
-		}
+	/*	
+	collection.find().toArray(
+		function(error, results){
+			if(error){
+	
+			} else {
+				callback(results);
+			}					
+		}	
 	);
-});
+	*/
+	callback(object);
+}
 
 function upsertObject(data, callback){
 	getCollection(
@@ -101,6 +101,48 @@ function upsertObject(data, callback){
 		}
 	);
 }
+
+function deleteObject(id, callback){
+	getCollection(
+		function(collection){
+			collection.remove( { 'id': id }, function(result){
+				callback();
+			});
+		}
+	);
+}
+
+router.get('/', function(request, response, next) {
+	getObjects(
+		function(objects){
+			response.send(JSON.stringify(objects, null, 4));		
+		}
+	);
+});
+
+router.get('/:object_id', function(request, response, next) {
+	getObject(request.params.object_id, 0,
+		function(object){
+			response.send(JSON.stringify(object, null, 4));		
+		}
+	);
+});
+
+router.get('/:object_id/getchildren', function(request, response, next) {
+	getObject(request.params.object_id, 1,
+		function(object){
+			response.send(JSON.stringify(object, null, 4));		
+		}
+	);
+});
+
+router.get('/:object_id/getdescendents', function(request, response, next) {
+	getObject(request.params.object_id, 1,
+		function(object){
+			response.send(JSON.stringify(object, null, 4));		
+		}
+	);
+});
 
 router.post('/', function(request, response, next){
 	var object = request.body;
@@ -130,16 +172,6 @@ router.post('/:object_id', function(request, response, next){
 		}
 	);
 });
-
-function deleteObject(id, callback){
-	getCollection(
-		function(collection){
-			collection.remove( { 'id': id }, function(result){
-				callback();
-			});
-		}
-	);
-}
 
 router.delete('/', function(request, response, next){
 	var object = request.body;
