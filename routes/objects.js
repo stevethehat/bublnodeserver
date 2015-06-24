@@ -22,9 +22,11 @@ var mongoAccess = {
 		if(self.initalized){
 			callback(self.collection);
 		} else {
+			console.log('init mongo connection "' + self.connectionString + '"');
 			self.mongoClient.connect(self.connectionString,
 				function(error, db){
 					self.db = db;
+					console.log('get collection "' + self.collectionName + '"');
 					self.collection = self.db.collection(self.collectionName);
 					self.initalized = true;
 					callback(self.collection);
@@ -82,6 +84,7 @@ function addChildObjects(object, depth){
 	if(depth === 0){
 		deferred.resolve(true);
 	} else {
+		console.log('load children of "' + object['type'] + '" (' + object['title'] + ')');
 		getCollection(
 			function(collection){
 				console.log('got collection ' + collection);
@@ -101,6 +104,8 @@ function addChildObjects(object, depth){
 										deferred.resolve(true);
 									}
 								)
+							} else {
+								deferred.resolve(true);
 							}
 						}
 					}
