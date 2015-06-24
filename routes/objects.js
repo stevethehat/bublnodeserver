@@ -5,6 +5,16 @@ var intFormat = require('biguint-format');
 var _ = require('underscore');
 var objectStore = require('../lib/objectstore');
 
+router.get('/init', function(request, response, next){
+	console.log('init objectStore');
+	objectStore.init().then(
+		function(){
+			console.log('objectStore.init');
+			response.send('{}');
+		}
+	);
+});
+
 router.get('/', function(request, response, next) {
 	objectStore.getAllObjects(
 		function(objects){
@@ -77,12 +87,6 @@ router.delete('/', function(request, response, next){
 
 router.delete('/:object_id', function(request, response, next){
 	objectStore.deleteObject(request.params.object_id, function(){
-		response.send('{}');
-	});
-});
-
-router.delete('/init', function(request, response, next){
-	objectStore.init(request.params.object_id, function(){
 		response.send('{}');
 	});
 });
