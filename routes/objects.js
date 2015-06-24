@@ -34,82 +34,12 @@ var mongoAccess = {
 	}
 }
 
-/*
-function MongoAccess (connectionString, collectionName) {
-	console.log('init object store (' + connectionString + ')');
-	this.db =null;
-	this.connectionString = connectionString;
-	this.collectionName = collectionName;
-	this.mongoClient = mongo.MongoClient;
-	this.initalized = false;
-    return this;
-}
-
-MongoAccess.prototype = new Object();
-
-_.extend(
-	MongoAccess.prototype,
-	{
-		getDB: function(callback){
-			var self = this;
-			console.log('here 2');
-
-			self.mongoClient.connect(self.connectionString,
-				function(error, db){
-					if(error){
-						
-					} else {
-						self.db = db;
-					}
-				}
-			);
-		},
-		getCollection: function(callback){
-			var self = this;
-			console.log('here 1');
-			
-			console.log('MongoAccess.getCollection initalized = ' + self.initalized);
-			if(self.initalized){
-				callback(self.collection);
-			} else {
-				self.getDB(
-					function(){
-						console.log('here 3');
-						
-						self.collection = self.db.collection(self.collectionName);
-						callback(self.collection);
-					}
-				);
-			}
-		}
-	}
-);
-*/
-
 function getCollection(callback){
-	console.log('getCollection from');
-	//console.log(mongoAccess);
 	mongoAccess.getCollection(
 		function(collection){
-			console.log('here 4');
-			
 			callback(collection);
 		}
 	);
-	/*	
-	var client = mongo.MongoClient;
-	client.connect(connectionString,
-		function(error, db){
-			if(error){
-				console.log(error);
-			} else {
-				console.log('we have a db' + db);
-				var collection = db.collection(collectionName);
-				callback(collection);	
-			}
-		}
-	);
-	*/
 }
 
 function getObjects(callback){
@@ -150,7 +80,6 @@ function getObject(id, depth, callback){
 function addChildObjects(object, depth){
 	var deferred = new Q.defer()
 	if(depth === 0){
-		//callback(object);
 		deferred.resolve(true);
 	} else {
 		getCollection(
@@ -161,16 +90,18 @@ function addChildObjects(object, depth){
 						if(error){
 							
 						} else {
-							object['children'] = results;
-							var childPromises = [];
-							for(var i=0; i<results.length;i++){
-								childPromises.push(addChildObjects(results[i], depth))
-							}
-							Q.all(childPromises).then(
-								function(){
-									deferred.resolve(true);
+							if(results.length > 0){
+								object['children'] = results;
+								var childPromises = [];
+								for(var i=0; i<results.length;i++){
+									childPromises.push(addChildObjects(results[i], depth))
 								}
-							)
+								Q.all(childPromises).then(
+									function(){
+										deferred.resolve(true);
+									}
+								)
+							}
 						}
 					}
 				);
