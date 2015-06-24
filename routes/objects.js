@@ -4,12 +4,99 @@ var mongo = require("mongodb");
 var flake = require('flake-idgen');
 var intFormat = require('biguint-format');
 var Q = require('Q');
+var _ = require('underscore');
+
 
 var connectionString = 'mongodb://bublUser:bublUser@analyticstestvm.cloudapp.net:31031/bublv2';
 var collectionName = 'stevesobjects';
-var db = null;
+var mongoAccess = {
+	connectionString: 'mongodb://bublUser:bublUser@analyticstestvm.cloudapp.net:31031/bublv2',
+	collectionName: 'stevesobjects',
+	db: null,
+	collection: null,
+	mongoClient: mongo.MongoClient,
+	initalized: false,
+	
+	getCollection: function(callback){
+		var self = this;
+		if(self.initalized){
+			callback(self.collection);
+		} else {
+			self.mongoClient.connect(self.connectionString,
+				function(error, db){
+					self.db = db;
+					self.collection = self.db.collection(self.collectionName);
+					self.initalized = true;
+					callback(self.collection);
+				}
+			);
+		}
+	}
+}
+
+/*
+function MongoAccess (connectionString, collectionName) {
+	console.log('init object store (' + connectionString + ')');
+	this.db =null;
+	this.connectionString = connectionString;
+	this.collectionName = collectionName;
+	this.mongoClient = mongo.MongoClient;
+	this.initalized = false;
+    return this;
+}
+
+MongoAccess.prototype = new Object();
+
+_.extend(
+	MongoAccess.prototype,
+	{
+		getDB: function(callback){
+			var self = this;
+			console.log('here 2');
+
+			self.mongoClient.connect(self.connectionString,
+				function(error, db){
+					if(error){
+						
+					} else {
+						self.db = db;
+					}
+				}
+			);
+		},
+		getCollection: function(callback){
+			var self = this;
+			console.log('here 1');
+			
+			console.log('MongoAccess.getCollection initalized = ' + self.initalized);
+			if(self.initalized){
+				callback(self.collection);
+			} else {
+				self.getDB(
+					function(){
+						console.log('here 3');
+						
+						self.collection = self.db.collection(self.collectionName);
+						callback(self.collection);
+					}
+				);
+			}
+		}
+	}
+);
+*/
 
 function getCollection(callback){
+	console.log('getCollection from');
+	//console.log(mongoAccess);
+	mongoAccess.getCollection(
+		function(collection){
+			console.log('here 4');
+			
+			callback(collection);
+		}
+	);
+	/*	
 	var client = mongo.MongoClient;
 	client.connect(connectionString,
 		function(error, db){
@@ -22,6 +109,7 @@ function getCollection(callback){
 			}
 		}
 	);
+	*/
 }
 
 function getObjects(callback){
