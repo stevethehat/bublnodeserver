@@ -3,9 +3,11 @@ var router = express.Router();
 var mongo = require("mongodb");
 var flake = require('flake-idgen');
 var intFormat = require('biguint-format');
+var Q = require('Q');
 
 var connectionString = 'mongodb://bublUser:bublUser@analyticstestvm.cloudapp.net:31031/bublv2';
 var collectionName = 'stevesobjects';
+var db = null;
 
 function getCollection(callback){
 	var client = mongo.MongoClient;
@@ -46,18 +48,22 @@ function getObject(id, depth, callback){
 			collection.find({ 'id': id }).toArray(
 				function(error, results){
 					var object = results[0];
-					addChildObjects(object, depth, function(){
-						callback(object);
-					});
+					addChildObjects(object, depth).then(
+						function(){
+							callback(object);
+						}
+					).done();
 				}
 			);
 		}
 	);
 }
 
-function addChildObjects(object, depth, callback){
+function addChildObjects(object, depth){
+	var deferred = new Q.defer()
 	if(depth === 0){
-		callback(object);
+		//callback(object);
+		deferred.resolve(true);
 	} else {
 		getCollection(
 			function(collection){
@@ -68,13 +74,22 @@ function addChildObjects(object, depth, callback){
 							
 						} else {
 							object['children'] = results;
-							callback(object);							
+							var childPromises = [];
+							for(var i=0; i<results.length;i++){
+								childPromises.push(addChildObjects(results[i], depth))
+							}
+							Q.all(childPromises).then(
+								function(){
+									deferred.resolve(true);
+								}
+							)
 						}
 					}
 				);
 			}
 		);
 	}
+	return(deferred.promise);
 }
 
 function upsertObject(data, callback){
