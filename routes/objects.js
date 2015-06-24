@@ -46,15 +46,9 @@ function getObject(id, depth, callback){
 			collection.find({ 'id': id }).toArray(
 				function(error, results){
 					var object = results[0];
-					if(depth === 0){
-						callback(object);					
-					} else {
-						addChildObjects(object, depth, 
-							function(object){
-								callback(object);						
-							}
-						);
-					}
+					addChildObjects(object, depth, function(){
+						callback(object);
+					});
 				}
 			);
 		}
@@ -62,20 +56,25 @@ function getObject(id, depth, callback){
 }
 
 function addChildObjects(object, depth, callback){
-	object['children'] = [];
-
-	/*	
-	collection.find().toArray(
-		function(error, results){
-			if(error){
-	
-			} else {
-				callback(results);
-			}					
-		}	
-	);
-	*/
-	callback(object);
+	if(depth === 0){
+		callback(object);
+	} else {
+		getCollection(
+			function(collection){
+				console.log('got collection ' + collection);
+				collection.find({ 'parentId': object['id'] }).toArray(
+					function(error, results){
+						if(error){
+							
+						} else {
+							object['children'] = results;
+							callback(object);							
+						}
+					}
+				);
+			}
+		);
+	}
 }
 
 function upsertObject(data, callback){
