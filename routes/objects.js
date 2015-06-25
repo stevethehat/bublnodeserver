@@ -1,7 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var flake = require('flake-idgen');
-var intFormat = require('biguint-format');
 var _ = require('underscore');
 var objectStore = require('../lib/objectstore');
 
@@ -31,7 +29,7 @@ router.get('/:object_id', function(request, response, next) {
 	);
 });
 
-router.get('/:object_id/getchildren', function(request, response, next) {
+router.get('/:object_id/withchildren', function(request, response, next) {
 	objectStore.getObject(request.params.object_id, 1,
 		function(object){
 			response.send(JSON.stringify(object, null, 4));		
@@ -39,7 +37,7 @@ router.get('/:object_id/getchildren', function(request, response, next) {
 	);
 });
 
-router.get('/:object_id/getdescendents', function(request, response, next) {
+router.get('/:object_id/withdescendents', function(request, response, next) {
 	objectStore.getObject(request.params.object_id, null,
 		function(object){
 			response.send(JSON.stringify(object, null, 4));		
@@ -49,23 +47,13 @@ router.get('/:object_id/getdescendents', function(request, response, next) {
 
 router.post('/', function(request, response, next){
 	var object = request.body;
-	console.log('postedt object');
+	console.log('posted object');
 	console.log(JSON.stringify(object, null, 4));
-	if(object['id']){
-		objectStore.upsertObject(object,
-			function(insertedObject){
-				response.send(JSON.stringify(insertedObject));	
-			}
-		);
-	} else {
-		var generator = new flake;
-		object['id'] = intFormat(generator.next(), 'dec');
-		objectStore.upsertObject(object,
-			function(insertedObject){
-				response.send(JSON.stringify(insertedObject));	
-			}
-		);
-	}
+	objectStore.upsertObject(object).done(
+		function(insertedObject){
+			response.send(JSON.stringify(insertedObject));		
+		}
+	);
 });
 
 router.post('/:object_id', function(request, response, next){
