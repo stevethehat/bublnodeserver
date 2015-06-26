@@ -24,6 +24,17 @@ router.get('/init', function(request, response, next){
 	);
 });
 
+router.get('/version', function(request, response, next){
+	requestStart();
+	console.log('init objectStore');
+	objectStore.init().then(
+		function(){
+			console.log('objectStore.init');
+			response.send('{ "version": "' + process.env.npm_package_version + '" }');
+		}
+	);
+});
+
 router.get('/', function(request, response, next) {
 	requestStart();
 	objectStore.getAllObjects(
