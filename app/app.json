@@ -27,9 +27,10 @@
 							"size": { "width": "max", "height": "max" }
 						},
 						{
-							"type": "View",
+							"type": "Image",
 							"id": "logo",
 							"color": "#444",
+							"url": "/img/bubl.png",
 							"show": true,
 							"size": { "width": 60, "height": "max" }
 						}
