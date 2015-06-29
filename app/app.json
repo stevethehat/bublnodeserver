@@ -4,8 +4,8 @@
 	"views": [
 		{
 			"type": "View",
-			"id": "BublEditor",
-			"colour": "green",
+			"id": "BublApp",
+			"colour": "white",
 			"show": true,
 			"layout": { "style": "vertical", "align": "left" },
 			"size": { "width": "max", "height": "max" },
@@ -13,13 +13,23 @@
 				{
 					"type": "View",
 					"id": "Header",
+					"color": "#333",
 					"show": true,
 					"layout": { "style": "horizontal", "align": "right" },
-					"size": { "width": "max", "height": 40 },
+					"size": { "width": "max", "height": 60 },
 					"children": [
+						{
+							"type": "Header",
+							"id": "HeaderText",
+							"show": true,
+							"content": "bubl editor",
+							"layout": { "align": "left" },
+							"size": { "width": "max", "height": "max" }
+						},
 						{
 							"type": "View",
 							"id": "logo",
+							"color": "#444",
 							"show": true,
 							"size": { "width": 60, "height": "max" }
 						}
@@ -28,19 +38,60 @@
 				{
 					"type": "View",
 					"id": "Toolbar",
+					"color": "#555",
 					"show": true,
-					"layout": { "style": "horizontal" },
-					"size": { "width": "max", "height": 40 }
+					"layout": { "style": "horizontal", "align": "left" },
+					"size": { "width": "max", "height": 40 },
+					"children": [
+						{
+							"type": "Button",
+							"show": true,
+							"content": "Button 1",
+							"size": { "width": 100, "height": "max" }
+						},
+						{
+							"type": "Button",
+							"show": true,
+							"content": "Button 2",
+							"size": { "width": 100, "height": "max" }
+						}
+					]
 				},
 				{
 					"type": "View",
 					"id": "MainPanel",
+					"color": "#666",
 					"show": true,
-					"size": { "width": "max", "height": "max" }
+					"layout": { "style": "horizontal" },
+					"size": { "width": "max", "height": "max" },
+					"children": [
+						{
+							"type": "View",
+							"id": "Palette",
+							"color": "#888",
+							"show": true,
+							"size": { "width": 200, "height": "max" }
+						},
+						{
+							"type": "View",
+							"id": "BublEditor",
+							"color": "#999",
+							"show": true,
+							"size": { "width": "max", "height": "max" }
+						},
+						{
+							"type": "View",
+							"id": "Properties",
+							"color": "#aaa",
+							"show": true,
+							"size": { "width": 200, "height": "max" }
+						}
+					]
 				},
 				{
 					"type": "View",
 					"id": "StatusPanel",
+					"color": "#777",
 					"show": true,
 					"size": { "width": "max", "height": 30 }
 				}

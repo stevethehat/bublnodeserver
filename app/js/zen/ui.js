@@ -34,9 +34,9 @@ var ZEN = (function (ZEN, _, $) {
 				}
 
 				this.getElement()
-					.text(params.type + " ("+this.id+")")
 					.css('position', 'absolute')
 				;
+				this.render(params);
 
 				if (params.colour !== undefined) {
 					this.getElement().css('background-color', params.colour);
@@ -47,7 +47,10 @@ var ZEN = (function (ZEN, _, $) {
 
 				this.autoShow = params.show === true;
 			},
-
+			
+			render: function(params){
+				//this.el.text(params.type + " ("+this.id+")")
+			},
 
 			ready: function () {
 				var idx;
@@ -70,6 +73,7 @@ var ZEN = (function (ZEN, _, $) {
 
 			getElement: function () {
 				if (this.el === null) {
+					//ZEN.log('get element' + this.id + ' = ' + this.baseHTML);
 					this.el = $(this.baseHTML);
 					this.el.attr('id', this.id);
 					this.el.css('overflow', 'hidden');
