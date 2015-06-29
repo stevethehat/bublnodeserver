@@ -69,34 +69,40 @@
 							"id": "Palette",
 							"show": true,
 							"size": { "width": 200, "height": "max" },
-							"children": [
+							"children":[
 								{
-									"type": "PaletteItem",
-									"show": true,
-									"content": "Text",
-									"icon": "fa-file-text-o",
-									"size": { "width": "max", "height": 38 }
-								},
-								{
-									"type": "PaletteItem",
-									"show": true,
-									"content": "Image",
-									"icon": "fa-file-image-o",
-									"size": { "width": "max", "height": 38 }
-								},
-								{
-									"type": "PaletteItem",
-									"show": true,
-									"content": "Video",
-									"icon": "fa-file-movie-o",
-									"size": { "width": "max", "height": 38 }
-								},
-								{
-									"type": "PaletteItem",
-									"show": true,
-									"content": "Columns",
-									"icon": "fa-columns",
-									"size": { "width": "max", "height": 38 }
+									"type": "ControlGroup",
+									"size": { "width": "max", "height": "max" },
+									"children": [
+										{
+											"type": "PaletteItem",
+											"show": true,
+											"content": "Text",
+											"icon": "fa-file-text-o",
+											"size": { "width": "max", "height": 44 }
+										},
+										{
+											"type": "PaletteItem",
+											"show": true,
+											"content": "Image",
+											"icon": "fa-file-image-o",
+											"size": { "width": "max", "height": 44 }
+										},
+										{
+											"type": "PaletteItem",
+											"show": true,
+											"content": "Video",
+											"icon": "fa-file-movie-o",
+											"size": { "width": "max", "height": 44 }
+										},
+										{
+											"type": "PaletteItem",
+											"show": true,
+											"content": "Columns",
+											"icon": "fa-columns",
+											"size": { "width": "max", "height": 44 }
+										}
+									]
 								}
 							]
 						},
