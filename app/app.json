@@ -13,7 +13,7 @@
 				{
 					"type": "View",
 					"id": "Header",
-					"color": "#333",
+					"color": "white",
 					"show": true,
 					"layout": { "style": "horizontal", "align": "right" },
 					"size": { "width": "max", "height": 60 },
@@ -29,7 +29,6 @@
 						{
 							"type": "Image",
 							"id": "logo",
-							"color": "#444",
 							"url": "/img/bubl.png",
 							"show": true,
 							"size": { "width": 60, "height": "max" }
@@ -42,7 +41,7 @@
 					"color": "#555",
 					"show": true,
 					"layout": { "style": "horizontal", "align": "left" },
-					"size": { "width": "max", "height": 40 },
+					"size": { "width": "max", "height": 30 },
 					"children": [
 						{
 							"type": "Button",
@@ -61,7 +60,6 @@
 				{
 					"type": "View",
 					"id": "MainPanel",
-					"color": "#666",
 					"show": true,
 					"layout": { "style": "horizontal" },
 					"size": { "width": "max", "height": "max" },
@@ -69,9 +67,38 @@
 						{
 							"type": "View",
 							"id": "Palette",
-							"color": "#888",
 							"show": true,
-							"size": { "width": 200, "height": "max" }
+							"size": { "width": 200, "height": "max" },
+							"children": [
+								{
+									"type": "PaletteItem",
+									"show": true,
+									"content": "Text",
+									"icon": "fa-file-text-o",
+									"size": { "width": "max", "height": 38 }
+								},
+								{
+									"type": "PaletteItem",
+									"show": true,
+									"content": "Image",
+									"icon": "fa-file-image-o",
+									"size": { "width": "max", "height": 38 }
+								},
+								{
+									"type": "PaletteItem",
+									"show": true,
+									"content": "Video",
+									"icon": "fa-file-movie-o",
+									"size": { "width": "max", "height": 38 }
+								},
+								{
+									"type": "PaletteItem",
+									"show": true,
+									"content": "Columns",
+									"icon": "fa-columns",
+									"size": { "width": "max", "height": 38 }
+								}
+							]
 						},
 						{
 							"type": "View",
@@ -95,6 +122,21 @@
 					"color": "#777",
 					"show": true,
 					"size": { "width": "max", "height": 30 }
+				}
+			]
+		},
+		{
+			"type": "View",
+			"show": true,
+			"color": "blue",
+			"position": { "bottom": 10, "right": 10 },
+			"size": { "width": 40, "height": 40 },
+			"children": [
+				{
+					"type": "Icon",
+					"icon": "fa-question-circle",
+					"show": true,
+					"size": { "width": 40, "height": 40 }
 				}
 			]
 		}

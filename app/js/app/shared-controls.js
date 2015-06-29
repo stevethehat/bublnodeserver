@@ -62,7 +62,7 @@ _.extend(
 				ZEN.ui.View.prototype.init.call(this, params, parent);
 			},
 			render: function (params) {
-				$('<div/>').text(params.content).appendTo(this.el);
+				$('<button/>').text(params.content).appendTo(this.el);
 			}
 		}
 );
@@ -102,7 +102,7 @@ _.extend(
 				ZEN.ui.View.prototype.init.call(this, params, parent);
 			},
 			render: function (params) {
-				$('<p/>').text(this.params.content).appendTo(this.el);
+				$('<p/>').text(params.content).appendTo(this.el);
 			}
 		}
 );
