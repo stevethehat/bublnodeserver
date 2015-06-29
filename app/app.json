@@ -1,0 +1,50 @@
+{
+	"type": "Application",
+	"id": "application",
+	"views": [
+		{
+			"type": "View",
+			"id": "BublEditor",
+			"colour": "green",
+			"show": true,
+			"layout": { "style": "vertical", "align": "left" },
+			"size": { "width": "max", "height": "max" },
+			"children":[
+				{
+					"type": "View",
+					"id": "Header",
+					"show": true,
+					"layout": { "style": "horizontal", "align": "right" },
+					"size": { "width": "max", "height": 40 },
+					"children": [
+						{
+							"type": "View",
+							"id": "logo",
+							"show": true,
+							"size": { "width": 60, "height": "max" }
+						}
+					]
+				},
+				{
+					"type": "View",
+					"id": "Toolbar",
+					"show": true,
+					"layout": { "style": "horizontal" },
+					"size": { "width": "max", "height": 40 }
+				},
+				{
+					"type": "View",
+					"id": "MainPanel",
+					"show": true,
+					"size": { "width": "max", "height": "max" }
+				},
+				{
+					"type": "View",
+					"id": "StatusPanel",
+					"show": true,
+					"size": { "width": "max", "height": 30 }
+				}
+			]
+		}
+	]
+}

@@ -71,6 +71,15 @@ router.get('/:object_id/withdescendents', function(request, response, next) {
 	);
 });
 
+router.get('/:object_id/nextorder', function(request, response, next) {
+	requestStart();
+	objectStore.getNextOrder(request.params.object_id).then(
+		function(object){
+			response.send(JSON.stringify(object, null, 4));		
+		}		
+	);
+});
+
 router.post('/', function(request, response, next){
 	requestStart();
 	var object = request.body;
