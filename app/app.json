@@ -29,77 +29,7 @@
 				},
 				{
 					"type": "ContentSwitcher",
-					"children": [
-						{
-							"id": "Toolbar",
-							"class": "toolbar",
-							"layout": { "style": "horizontal" },
-							"size": { "height": 30 },
-							"defaults": {
-								"type": "Button",
-								"size": { "width": 100 }
-							},
-							"children": [
-								{
-									"content": "Home",
-									"id": "Home"
-								},
-								{
-									"content": "Button 2",
-									"id": "Button 2"
-								},
-								{
-									"type": "Text",
-									"content": "hello i am a text control",
-									"size": { "width": 200 }
-								}
-							]
-						},
-						{
-							"id": "MainPanel",
-							"layout": { "style": "horizontal" },
-							"children": [
-								{
-									"id": "Palette",
-									"size": { "width": 200 },
-									"children":[
-										{
-											"type": "ControlGroup",
-											"defaults": {
-												"type": "PaletteItem",
-												"size": { "height": 44 }
-											},
-											"children": [
-												{
-													"content": "Text",
-													"icon": "fa-file-text-o"
-												},
-												{
-													"content": "Image",
-													"icon": "fa-file-image-o"										},
-												{
-													"content": "Video",
-													"icon": "fa-file-movie-o"
-												},
-												{
-													"content": "Columns",
-													"icon": "fa-columns"
-												}
-											]
-										}
-									]
-								},
-								{
-									"id": "BublEditor",
-									"color": "#999"
-								},
-								{
-									"id": "Properties",
-									"size": { "width": 200 }
-								}
-							]
-						}
-					]
+					"id": "Pages"
 				},
 				{
 					"id": "StatusBar",

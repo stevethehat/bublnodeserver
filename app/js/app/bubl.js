@@ -10,18 +10,15 @@ $(function() {
 			self.setupEvents();
 			self.load('http://localhost:3000/app.json', null,
 				function(){
-					self.load('http://localhost:3000/editor.json', self.BublEditor);
+					self.load('http://localhost:3000/editor.json', self.Pages);
 				}	
 			);
-			//self.load('http://localhost:3000/app.json', null);
-			//self.load('http://localhost:3000/editor.json', self.BublEditor);		
 		},
 		load: function(url, parent, callback){
 			var self = this;
 			ZEN.data.load(
 				url, {},
 				function (data) {
-					// var app = ZEN.parse(data);
 					var parsedData = self.preParse(data, {});
 					if(parent !== null){
 						ZEN.update(parsedData, parent);
@@ -64,8 +61,8 @@ $(function() {
 			ZEN.observe('objectcreation', null, {},
 				function(params){
 					ZEN.log('object creation observer' + params);
-					if(params['id'] === 'BublEditor'){
-						self.BublEditor = params['object'];
+					if(params['id'] === 'Pages'){
+						self.Pages = params['object'];
 					}
 				}
 			);
