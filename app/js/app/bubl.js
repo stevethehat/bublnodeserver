@@ -12,8 +12,8 @@ $(function() {
 				function (data) {
 					// var app = ZEN.parse(data);
 					var parsedData = self.preParse(data, {});
-					ZEN.log(parsedData);
 					ZEN.init(parsedData);
+					self.setupEvents();
 				}
 			);
 		},
@@ -36,6 +36,14 @@ $(function() {
 				}
 			}
 			return(data);
+		},
+		setupEvents: function(){
+			var self = this;
+			$('body').click(
+				function(event){
+					ZEN.notify('clicks', $(event.target).data('params'));
+				}
+			);
 		}
 	};
 	

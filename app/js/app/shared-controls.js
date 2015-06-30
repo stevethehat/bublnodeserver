@@ -134,5 +134,6 @@ ZEN.registerType('Header',HeaderControl);
 ZEN.registerType('Image', Image);
 ZEN.registerType('Button', ButtonControl);
 ZEN.registerType('Text', TextControl);
+ZEN.registerType('ContentSwitcher', ContentSwitcherControl);
 
 console.log(ZEN);

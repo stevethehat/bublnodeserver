@@ -121,6 +121,8 @@ var ZEN = (function (ZEN, _) {
 
 		function notify (queueName, message) {
 			var observers, idx, observer;
+			ZEN.log('notify "' + queueName + '"');
+			ZEN.log(message);
 
 			// is there a queue for this message?
 			if (queueName in messageObservers) {

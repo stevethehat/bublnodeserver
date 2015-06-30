@@ -36,6 +36,18 @@ var ZEN = (function (ZEN, _, $) {
 				this.getElement()
 					.css('position', 'absolute')
 				;
+				if(params.style){
+					this.el.css(params.style);
+				}
+				if(params.class){
+					this.el.attr('class', params.class);
+				}
+				var noChildrenParams = {};
+				$.extend(true, noChildrenParams, params)
+				if(noChildrenParams['children']){
+					delete noChildrenParams['children'];
+				}
+				this.el.data('params', params);
 				this.render(params);
 
 				if (params.colour !== undefined) {
@@ -83,6 +95,7 @@ var ZEN = (function (ZEN, _, $) {
 					} else {
 						this.el.appendTo($('body'));
 					}
+					
 				}
 
 				return this.el;
