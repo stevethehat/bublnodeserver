@@ -36,80 +36,87 @@
 				},
 				{
 					"type": "View",
-					"id": "Toolbar",
-					"color": "#555",
-					"layout": { "style": "horizontal", "align": "left" },
-					"size": { "width": "max", "height": 30 },
-					"defaults": {
-						"type": "Button",
-						"size": { "width": 100, "height": "max" }
-					},
-					"children": [
-						{
-							"content": "Button 1"
-						},
-						{
-							"content": "Button 2"
-						},
-						{
-							"type": "Text",
-							"content": "hello i am a text control",
-							"color": "red",
-							"size": { "width": 200 }
-						}
-					]
-				},
-				{
-					"type": "View",
-					"id": "MainPanel",
-					"layout": { "style": "horizontal" },
+					"layout": { "style": "vertical" },
 					"size": { "width": "max", "height": "max" },
 					"children": [
 						{
 							"type": "View",
-							"id": "Palette",
-							"size": { "width": 200, "height": "max" },
-							"children":[
+							"id": "Toolbar",
+							"color": "#555",
+							"layout": { "style": "horizontal", "align": "left" },
+							"size": { "width": "max", "height": 30 },
+							"defaults": {
+								"type": "Button",
+								"size": { "width": 100, "height": "max" }
+							},
+							"children": [
 								{
-									"type": "ControlGroup",
-									"size": { "width": "max", "height": "max" },
-									"defaults": {
-										"type": "PaletteItem",
-										"size": { "width": "max", "height": 44 }
-									},
-									"children": [
-										{
-											"content": "Text",
-											"icon": "fa-file-text-o"
-										},
-										{
-											"content": "Image",
-											"icon": "fa-file-image-o"										},
-										{
-											"content": "Video",
-											"icon": "fa-file-movie-o"
-										},
-										{
-											"content": "Columns",
-											"icon": "fa-columns"
-										}
-									]
+									"content": "Button 1"
+								},
+								{
+									"content": "Button 2"
+								},
+								{
+									"type": "Text",
+									"content": "hello i am a text control",
+									"color": "red",
+									"size": { "width": 200 }
 								}
 							]
 						},
 						{
 							"type": "View",
-							"id": "BublEditor",
-							"color": "#999",
-							"show": true,
-							"size": { "width": "max", "height": "max" }
-						},
-						{
-							"type": "View",
-							"id": "Properties",
-							"color": "#aaa",
-							"show": true,
-							"size": { "width": 200, "height": "max" }
+							"id": "MainPanel",
+							"layout": { "style": "horizontal" },
+							"size": { "width": "max", "height": "max" },
+							"children": [
+								{
+									"type": "View",
+									"id": "Palette",
+									"size": { "width": 200, "height": "max" },
+									"children":[
+										{
+											"type": "ControlGroup",
+											"size": { "width": "max", "height": "max" },
+											"defaults": {
+												"type": "PaletteItem",
+												"size": { "width": "max", "height": 44 }
+											},
+											"children": [
+												{
+													"content": "Text",
+													"icon": "fa-file-text-o"
+												},
+												{
+													"content": "Image",
+													"icon": "fa-file-image-o"										},
+												{
+													"content": "Video",
+													"icon": "fa-file-movie-o"
+												},
+												{
+													"content": "Columns",
+													"icon": "fa-columns"
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "View",
+									"id": "BublEditor",
+									"color": "#999",
+									"show": true,
+									"size": { "width": "max", "height": "max" }
+								},
+								{
+									"type": "View",
+									"id": "Properties",
+									"color": "#aaa",
+									"show": true,
+									"size": { "width": 200, "height": "max" }
+								}
+							]
 						}
 					]
 				},
