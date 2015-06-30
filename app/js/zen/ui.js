@@ -58,13 +58,15 @@ var ZEN = (function (ZEN, _, $) {
 				}
 
 				this.autoShow = params.show === true;
+				
+				ZEN.notify('objectcreation', { 'id': this.el.attr('id'), 'object': this });
 			},
 			
 			render: function(params){
 				//this.el.text(params.type + " ("+this.id+")")
 			},
 
-			ready: function () {
+			ready: function (callback) {
 				var idx;
 
 				if (this.autoShow === true) {

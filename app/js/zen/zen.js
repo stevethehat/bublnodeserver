@@ -63,6 +63,12 @@ var ZEN = (function (ZEN, _) {
 			app.ready();
 		}
 
+		function update (data, parent) {
+			var app = parse(data, parent);
+			app.ready();
+			ZEN.notify("global.resize", {});
+		}
+
 		
 		function registerType (name, obj) {
 			types[name] = obj;
@@ -154,7 +160,8 @@ var ZEN = (function (ZEN, _) {
 			getObject: getObject,
 			objects: objects,
 			observe: observe,
-			notify: notify
+			notify: notify,
+			update: update
 		};
 
 	}()));
