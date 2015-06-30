@@ -92,6 +92,8 @@ var ZEN = (function (ZEN, _) {
 
 		function observe (queueName, filter, o, callback) {
 			var queue, observer;
+			
+			ZEN.log('add observer "' + queueName + '"');
 
 			if (!(queueName in messageObservers)) {
 				messageObservers[queueName] = [];

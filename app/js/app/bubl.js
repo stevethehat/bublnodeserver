@@ -13,6 +13,7 @@ $(function() {
 					// var app = ZEN.parse(data);
 					var parsedData = self.preParse(data, {});
 					ZEN.init(parsedData);
+					self.setupObservers();
 					self.setupEvents();
 				}
 			);
@@ -37,11 +38,27 @@ $(function() {
 			}
 			return(data);
 		},
+		setupObservers: function(){
+			ZEN.observe('clicks', null, {},
+				function (params) {
+					alert('click observer ' + params);
+				}
+			);	
+		},
 		setupEvents: function(){
 			var self = this;
 			$('body').click(
 				function(event){
-					ZEN.notify('clicks', $(event.target).data('params'));
+					ZEN.log('click');
+					var element = $(event.target);
+					var data = element.data('params');
+					
+					if(data === undefined){
+						element = element.closest('[id]');
+						data = element.data('params');
+					}
+					
+					ZEN.notify('clicks', { 'id': element.attr('id'), 'data': data });
 				}
 			);
 		}

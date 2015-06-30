@@ -45,7 +45,8 @@
 									"id": "Home"
 								},
 								{
-									"content": "Button 2"
+									"content": "Button 2",
+									"id": "Button 2"
 								},
 								{
 									"type": "Text",
