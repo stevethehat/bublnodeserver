@@ -107,6 +107,27 @@ _.extend(
 		}
 );
 
+function ContentSwitcherControl (params, parent) {
+    if (arguments.length > 0) {
+		ZEN.ui.View.call(this, params, parent);
+    }
+    return this;
+}
+ContentSwitcherControl.prototype = new ZEN.ui.View();
+_.extend(
+	ContentSwitcherControl.prototype,
+		{
+			init: function (params, parent) {
+				// call the base class init method
+				ZEN.ui.View.prototype.init.call(this, params, parent);
+			},
+			render: function (params) {
+				$('<p/>').text(params.content).appendTo(this.el);
+			}
+		}
+);
+
+
 
 ZEN.registerType('Container',ContainerControl);
 ZEN.registerType('Header',HeaderControl);

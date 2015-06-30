@@ -1,7 +1,7 @@
 {
 	"type": "Application",
 	"id": "application",
-	"views": [
+	"children": [
 		{
 			"type": "View",
 			"id": "BublApp",
@@ -30,7 +30,6 @@
 							"type": "Image",
 							"id": "logo",
 							"url": "/img/bubl.png",
-							"show": true,
 							"size": { "width": 60, "height": "max" }
 						}
 					]
@@ -39,68 +38,60 @@
 					"type": "View",
 					"id": "Toolbar",
 					"color": "#555",
-					"show": true,
 					"layout": { "style": "horizontal", "align": "left" },
 					"size": { "width": "max", "height": 30 },
+					"defaults": {
+						"type": "Button",
+						"size": { "width": 100, "height": "max" }
+					},
 					"children": [
 						{
-							"type": "Button",
-							"show": true,
-							"content": "Button 1",
-							"size": { "width": 100, "height": "max" }
+							"content": "Button 1"
 						},
 						{
-							"type": "Button",
-							"show": true,
-							"content": "Button 2",
-							"size": { "width": 100, "height": "max" }
+							"content": "Button 2"
+						},
+						{
+							"type": "Text",
+							"content": "hello i am a text control",
+							"color": "red",
+							"size": { "width": 200 }
 						}
 					]
 				},
 				{
 					"type": "View",
 					"id": "MainPanel",
-					"show": true,
 					"layout": { "style": "horizontal" },
 					"size": { "width": "max", "height": "max" },
 					"children": [
 						{
 							"type": "View",
 							"id": "Palette",
-							"show": true,
 							"size": { "width": 200, "height": "max" },
 							"children":[
 								{
 									"type": "ControlGroup",
 									"size": { "width": "max", "height": "max" },
+									"defaults": {
+										"type": "PaletteItem",
+										"size": { "width": "max", "height": 44 }
+									},
 									"children": [
 										{
-											"type": "PaletteItem",
-											"show": true,
 											"content": "Text",
-											"icon": "fa-file-text-o",
-											"size": { "width": "max", "height": 44 }
+											"icon": "fa-file-text-o"
 										},
 										{
-											"type": "PaletteItem",
-											"show": true,
 											"content": "Image",
-											"icon": "fa-file-image-o",
-											"size": { "width": "max", "height": 44 }
-										},
+											"icon": "fa-file-image-o"										},
 										{
-											"type": "PaletteItem",
-											"show": true,
 											"content": "Video",
-											"icon": "fa-file-movie-o",
-											"size": { "width": "max", "height": 44 }
+											"icon": "fa-file-movie-o"
 										},
 										{
-											"type": "PaletteItem",
-											"show": true,
 											"content": "Columns",
-											"icon": "fa-columns",
-											"size": { "width": "max", "height": 44 }
+											"icon": "fa-columns"
 										}
 									]
 								}
