@@ -1,53 +1,43 @@
 {
 	"type": "Application",
 	"id": "application",
+	"defaults": { 
+		"type": "View",
+		"show": true,
+		"size": { "width": "max", "height": "max" },
+		"layout": { "style": "vertical", "align": "left" } 
+	},
 	"children": [
 		{
-			"type": "View",
 			"id": "BublApp",
-			"colour": "white",
-			"show": true,
-			"layout": { "style": "vertical", "align": "left" },
-			"size": { "width": "max", "height": "max" },
 			"children":[
 				{
-					"type": "View",
 					"id": "Header",
 					"color": "white",
-					"show": true,
 					"layout": { "style": "horizontal", "align": "right" },
-					"size": { "width": "max", "height": 60 },
+					"size": { "height": 60 },
 					"children": [
 						{
 							"type": "Header",
-							"id": "HeaderText",
-							"show": true,
-							"content": "bubl editor",
-							"layout": { "align": "left" },
-							"size": { "width": "max", "height": "max" }
+							"content": "bubl editor"
 						},
 						{
 							"type": "Image",
-							"id": "logo",
 							"url": "/img/bubl.png",
-							"size": { "width": 60, "height": "max" }
+							"size": { "width": 60 }
 						}
 					]
 				},
 				{
-					"type": "View",
-					"layout": { "style": "vertical" },
-					"size": { "width": "max", "height": "max" },
 					"children": [
 						{
-							"type": "View",
 							"id": "Toolbar",
 							"color": "#555",
-							"layout": { "style": "horizontal", "align": "left" },
-							"size": { "width": "max", "height": 30 },
+							"layout": { "style": "horizontal" },
+							"size": { "height": 30 },
 							"defaults": {
 								"type": "Button",
-								"size": { "width": 100, "height": "max" }
+								"size": { "width": 100 }
 							},
 							"children": [
 								{
@@ -65,22 +55,18 @@
 							]
 						},
 						{
-							"type": "View",
 							"id": "MainPanel",
 							"layout": { "style": "horizontal" },
-							"size": { "width": "max", "height": "max" },
 							"children": [
 								{
-									"type": "View",
 									"id": "Palette",
-									"size": { "width": 200, "height": "max" },
+									"size": { "width": 200 },
 									"children":[
 										{
 											"type": "ControlGroup",
-											"size": { "width": "max", "height": "max" },
 											"defaults": {
 												"type": "PaletteItem",
-												"size": { "width": "max", "height": 44 }
+												"size": { "height": 44 }
 											},
 											"children": [
 												{
@@ -103,35 +89,27 @@
 									]
 								},
 								{
-									"type": "View",
 									"id": "BublEditor",
-									"color": "#999",
-									"show": true,
-									"size": { "width": "max", "height": "max" }
+									"color": "#999"
 								},
 								{
-									"type": "View",
 									"id": "Properties",
 									"color": "#aaa",
-									"show": true,
-									"size": { "width": 200, "height": "max" }
+									"size": { "width": 200 }
 								}
 							]
 						}
 					]
 				},
 				{
-					"type": "View",
 					"id": "StatusPanel",
 					"color": "#777",
-					"show": true,
-					"size": { "width": "max", "height": 30 }
+					"size": { "height": 30 }
 				}
 			]
 		},
 		{
 			"type": "View",
-			"show": true,
 			"color": "blue",
 			"position": { "bottom": 10, "right": 10 },
 			"size": { "width": 40, "height": 40 },
