@@ -10,9 +10,13 @@ $(function() {
 			self.setupEvents();
 			self.load('http://localhost:3000/app.json', null,
 				function(){
-					self.load('http://localhost:3000/editor.json', self.Pages);
+					self.loadPage('home');
 				}	
 			);
+		},
+		loadPage: function(page){
+			var self = this;
+			self.load('http://localhost:3000/pages/' + page + '.json', self.Pages);
 		},
 		load: function(url, parent, callback){
 			var self = this;
