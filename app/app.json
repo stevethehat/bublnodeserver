@@ -1,52 +1,38 @@
 {
 	"type": "Application",
-	"id": "application",
+	"id": "BublApp",
 	"show": true,
 	"defaults": { 
 		"type": "View",
 		"show": true,
 		"size": { "width": "max", "height": "max" },
 		"layout": { "style": "vertical", "align": "left" } 
-	},
-	"children": [
+	},			
+	"children":[
 		{
-			"id": "BublApp",
-			"children":[
+			"id": "Header",
+			"layout": { "style": "horizontal", "align": "right" },
+			"size": { "height": 60 },
+			"style": { "border-bottom": "solid 1px #aaa" },
+			"children": [
 				{
-					"id": "Header",
-					"layout": { "style": "horizontal", "align": "right" },
-					"size": { "height": 60 },
-					"style": { "border-bottom": "solid 1px #aaa" },
-					"children": [
-						{
-							"children":[
-								{
-									"type": "Header",
-									"content": "bubl"
-								}		
-							]
-						},
-						{
-							"size": { "width": 60 },
-							"children":[
-								{
-									"type": "Image",
-									"url": "/img/bubl.png",
-									"style": { "padding-top": 6 }
-								}		
-							]
-						}
-					]
-				},
+					"type": "Header",
+					"content": "bubl"
+				},		
 				{
-					"id": "Pages"
-				},
-				{
-					"id": "StatusBar",
-					"class": "statusbar",
-					"size": { "height": 30 }
-				}
+					"type": "Image",
+					"url": "/img/bubl.png",
+					"style": { "padding-top": 6 }
+				}								
 			]
+		},
+		{
+			"id": "Pages"
+		},
+		{
+			"id": "StatusBar",
+			"class": "statusbar",
+			"size": { "height": 30 }
 		},
 		{
 			"type": "View",
