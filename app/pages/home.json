@@ -1,0 +1,64 @@
+{
+	"type": "View",
+	"id": "home",
+	"show": true,
+	"size": { "width": "max", "height": "max" },
+	"layout": { "style": "vertical" },
+	"defaults": { 
+		"type": "View",
+		"show": true,
+		"size": { "width": "max", "height": "max" },
+		"layout": { "style": "vertical", "align": "left" } 
+	},
+	"children": [
+		{
+			"size": { "height" : 40 }
+		},
+		{
+			"layout": { "style": "horizontal" },
+			"children":[
+				{},
+				{
+					"size": { "width" : 400 },
+					"style": { "border": "solid 1px #aaa"},
+					"children":[
+						{
+							"children": [
+								{
+									"type": "Header",
+									"size": { "height": 60 },
+									"content": "Welcome to bubl"
+								},
+								{
+									"type": "Text",
+									"content": "What would you like to do today?",
+									"size": { "height": 30 }	
+								},
+								{
+									"id": "bublBrowser",
+									"color": "#ddd",
+									"size": { "height": 100 },
+									"actions": {
+										"click": "ShowPage"
+									}
+								},
+								{
+									"id": "userSettings",
+									"color": "#ddd",
+									"size": { "height": 100 },
+									"actions": {
+										"click": "ShowPage"
+									}
+								}
+							]
+						}
+					]
+				},
+				{}
+			]
+		},
+		{
+			"size": { "height" : 40 }
+		}
+	]
+}
