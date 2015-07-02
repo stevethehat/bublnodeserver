@@ -60,19 +60,6 @@
 					"size": { "width": 40, "height": 40 }
 				}
 			]
-		},
-		{
-			"type": "View",
-			"color": "blue",
-			"position": { "bottom": 100, "right": 300 },
-			"size": { "width": 200, "height": 60 },
-			"children": [
-				{
-					"type": "Header",
-					"content": "a header"				
-				}
-			]
 		}
-
 	]
 }
