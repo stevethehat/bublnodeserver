@@ -15,15 +15,17 @@
 					"id": "Header",
 					"layout": { "style": "horizontal", "align": "right" },
 					"size": { "height": 60 },
+					"style": { "border-bottom": "solid 1px #aaa" },
 					"children": [
 						{
 							"type": "Header",
-							"content": "bubl editor"
+							"content": "bubl"
 						},
 						{
 							"type": "Image",
 							"url": "/img/bubl.png",
-							"size": { "width": 60 }
+							"size": { "width": 60 },
+							"style": { "padding-top": 6 }
 						}
 					]
 				},
