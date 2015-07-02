@@ -1,6 +1,7 @@
 {
 	"type": "Application",
 	"id": "application",
+	"show": true,
 	"defaults": { 
 		"type": "View",
 		"show": true,
@@ -18,19 +19,26 @@
 					"style": { "border-bottom": "solid 1px #aaa" },
 					"children": [
 						{
-							"type": "Header",
-							"content": "bubl"
+							"children":[
+								{
+									"type": "Header",
+									"content": "bubl"
+								}		
+							]
 						},
 						{
-							"type": "Image",
-							"url": "/img/bubl.png",
 							"size": { "width": 60 },
-							"style": { "padding-top": 6 }
+							"children":[
+								{
+									"type": "Image",
+									"url": "/img/bubl.png",
+									"style": { "padding-top": 6 }
+								}		
+							]
 						}
 					]
 				},
 				{
-					"type": "ContentSwitcher",
 					"id": "Pages"
 				},
 				{
@@ -49,10 +57,22 @@
 				{
 					"type": "Icon",
 					"icon": "fa-question-circle",
-					"show": true,
 					"size": { "width": 40, "height": 40 }
 				}
 			]
+		},
+		{
+			"type": "View",
+			"color": "blue",
+			"position": { "bottom": 100, "right": 300 },
+			"size": { "width": 200, "height": 60 },
+			"children": [
+				{
+					"type": "Header",
+					"content": "a header"				
+				}
+			]
 		}
+
 	]
 }
