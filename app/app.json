@@ -21,7 +21,7 @@
 				},		
 				{
 					"type": "Image",
-					"url": "/img/bubl.png",
+					"url": "img/bubl.png",
 					"style": { "padding-top": 6 },
 					"size": { "width": 60 }
 				}								
@@ -37,14 +37,21 @@
 		},
 		{
 			"type": "View",
+			"id": "help",
 			"color": "blue",
 			"position": { "bottom": 10, "right": 10 },
 			"size": { "width": 40, "height": 40 },
 			"children": [
 				{
 					"type": "Icon",
-					"icon": "fa-question-circle",
-					"size": { "width": 40, "height": 40 }
+					"icon": {
+						"name": "fa-question-circle",
+						"size": 3
+					},
+					"size": { "width": 40, "height": 40 },
+					"actions":{
+						"click": "ShowHelp"
+					}
 				}
 			]
 		}
