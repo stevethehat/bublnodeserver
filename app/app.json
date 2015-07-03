@@ -22,7 +22,8 @@
 				{
 					"type": "Image",
 					"url": "/img/bubl.png",
-					"style": { "padding-top": 6 }
+					"style": { "padding-top": 6 },
+					"size": { "width": 60 }
 				}								
 			]
 		},
