@@ -19,7 +19,7 @@
 			"children":[
 				{},
 				{
-					"size": { "width" : 400 },
+					"size": { "width" : 500 },
 					"style": { "border": "solid 1px #aaa"},
 					"children":[
 						{
@@ -31,24 +31,47 @@
 								},
 								{
 									"type": "Text",
-									"content": "What would you like to do today?",
-									"size": { "height": 30 }	
+									"content": "So what would you like to do today?",
+									"size": { "height": 30 },
+									"style": { "border-bottom": "solid 1px #aaa" }	
 								},
 								{
-									"id": "bublBrowser",
-									"color": "#ddd",
-									"size": { "height": 100 },
-									"actions": {
-										"click": "ShowPage"
-									}
-								},
-								{
-									"id": "userSettings",
-									"color": "#ddd",
-									"size": { "height": 100 },
-									"actions": {
-										"click": "ShowPage"
-									}
+									"defaults": {
+										"type": "Launcher",
+										"size": { "height": 100 }
+									},
+									"children": [
+										{
+											"id": "bublBrowser",
+											"content":{
+												"heading": "Edit my bubls",
+												"description": "some informative explanation here"
+											},
+											"actions": {
+												"click": "ShowPage"
+											}
+										},
+										{
+											"id": "userSettings",
+											"content": {
+												"heading": "Edit my user settings",
+												"description": "some informative explanation here"
+											},
+											"actions": {
+												"click": "ShowPage"
+											}
+										},
+										{
+											"id": "advancedSettings",
+											"content": {
+												"heading": "Advanced settings",
+												"description": "some informative explanation here"
+											},
+											"actions": {
+												"click": "ShowPage"
+											}
+										}										
+									]
 								}
 							]
 						}

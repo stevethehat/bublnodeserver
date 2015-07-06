@@ -28,7 +28,7 @@
 			]
 		},
 		{
-			"id": "Pages"
+			"id": "ActivePage"
 		},
 		{
 			"id": "StatusBar",
@@ -38,7 +38,6 @@
 		{
 			"type": "View",
 			"id": "help",
-			"color": "blue",
 			"position": { "bottom": 10, "right": 10 },
 			"size": { "width": 40, "height": 40 },
 			"children": [
