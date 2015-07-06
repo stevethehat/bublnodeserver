@@ -1,0 +1,85 @@
+{
+	"type": "View",
+	"id": "home",
+	"show": true,
+	"size": { "width": "max", "height": "max" },
+	"layout": { "style": "vertical" },
+	"defaults": { 
+		"type": "View",
+		"show": true,
+		"size": { "width": "max", "height": "max" },
+		"layout": { "style": "vertical", "align": "left" } 
+	},
+	"children": [
+		{
+			"id": "toolbar",
+			"size": { "height": 34 },
+			"class": "toolbar",
+			"layout": { "style": "horizontal" },
+			"defaults": {
+				"type": "LabelButton",
+				"size": { "width": 80, "height": 34 },
+				"content": { "size": 2 },
+				"actions": {
+					"click": "ToolbarClick"
+				}
+			},
+			"children": [
+				{ "id": "toolbarBack", "content": { "icon": "fa-chevron-left", "label": "Back" } },
+				{ "id": "toolbarAdd", "content": { "icon": "fa-plus", "label": "Add" } },
+				{ "id": "toolbarDelete", "content": { "icon": "fa-trash-o", "label": "Delete" } },
+				{ "id": "toolbarEdit", "content": { "icon": "fa-edit", "label": "Edit" } }
+			]	
+		},
+		{
+			"size": { "height" : 40 }
+		},
+		{
+			"layout": { "style": "horizontal" },
+			"children":[
+				{},
+				{
+					"size": { "width" : 500, "height": 500 },
+					"style": { "border": "solid 1px #aaa"},
+					"children":[
+						{
+							"children": [
+								{
+									"type": "Header",
+									"size": { "height": 60 },
+									"content": "Your bubls"
+								},
+								{
+									"type": "Text",
+									"content": "Select the bubl you want to edit.",
+									"size": { "height": 30 }	
+								},
+								{
+									"type": "List",
+									"columns":[
+										{ "title": "", "type": "thumbnail", "name": "thumbnail", "width": 100 },
+										{ "title": "Bubl Name", "name": "name" },	
+										{ "title": "Last modified", "name": "lastmodified" },
+										{ "title": "", "type": "nav", "width": 25 }
+									],
+									"data": [
+										{ "id": "bubl1", "name": "Bubl 1", "lastmodified": "17 Mins ago" },
+										{ "id": "bubl2", "name": "Bubl 2", "lastmodified": "Saturday" },
+										{ "id": "bubl3", "name": "Bubl 3", "lastmodified": "4th Jan" }
+									],
+									"actions": {
+										"click": "ListClick"
+									}
+								}
+							]
+						}
+					]
+				},
+				{}
+			]
+		},
+		{
+			"size": { "height" : 40 }
+		}
+	]
+}
