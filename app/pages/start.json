@@ -1,0 +1,90 @@
+{
+	"type": "View",
+	"id": "home",
+	"show": true,
+	"size": { "width": "max", "height": "max" },
+	"layout": { "style": "vertical" },
+	"defaults": { 
+		"type": "View",
+		"show": true,
+		"size": { "width": "max", "height": "max" },
+		"layout": { "style": "vertical", "align": "left" } 
+	},
+	"children": [
+		{
+			"size": { "height" : 40 }
+		},
+		{
+			"layout": { "style": "horizontal" },
+			"children":[
+				{
+					"id": "leftPadding"
+				},
+				{
+					"id": "mainContentArea",
+					"size": { "width" : 1044, "height": 600 },
+					"style": { "border": "solid 1px #aaa"},
+					"children":[
+						{
+							"children": [
+								{
+									"type": "Header",
+									"size": { "height": 60 },
+									"content": "Your bubls"
+								},
+								{
+									"type": "Text",
+									"content": "Select the bubl you want to edit.",
+									"size": { "height": 30 }	
+								},
+								{
+									"type": "Grid",
+									"id": "bubleGrid",
+									"defaults": {
+										"type": "CrossFader",
+										"size": { "width": 340, "height": 200 }
+									},
+									"children": [
+										{
+											"type": "View",
+											"layout": { "style": "horizontal" },
+											"children": [
+												{ "id": "bubl1", "name": "Bubl 1",
+													"children": [
+														{ "type": "Image", "url": "img/acricketer.png" },
+														{ "type": "Text", "content": "here is a cricketer 1" }
+													] 
+												},
+												{ "id": "bubl2", "name": "Bubl 1",
+													"children": [
+														{ "type": "Image", "url": "img/acricketer.png" },
+														{ "type": "Text", "content": "here is a cricketer 2" }
+													] 
+												},
+												{ "id": "bubl3", "name": "Bubl 1",
+													"children": [
+														{ "type": "Image", "url": "img/acricketer.png" },
+														{ "type": "Text", "content": "here is a cricketer 3" }
+													] 
+												}		
+											]
+										}
+									],
+									"actions": {
+										"click": "ListClick"
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "rightPadding"					
+				}
+			]
+		},
+		{
+			"size": { "height" : 40 }
+		}
+	]
+}
