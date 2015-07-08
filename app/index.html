@@ -23,6 +23,7 @@
 		<script src="js/lib/jquery-1.11.3.js"></script>
 		<script src="js/lib/underscore.js"></script>
 		<script src="js/lib/underscore.string.js"></script>
+		<script src="js/lib/color-thief.js"></script>
 
 		<script src="js/zen/zen.js"></script>
 		<script src="js/zen/events.js"></script>
@@ -35,5 +36,13 @@
 		<script src="js/app/app-ui-controls.js"></script>
 		<script src="js/app/bubl.js"></script>
 		<script src="js/app/actions.js"></script>
+		
+			<script type="text/javascript">
+			$(document).ready(
+				function(){
+					ZEN.notify('pageevents', { 'event': 'loaded', 'data': {} });
+				}
+			);
+		</script>
 	</body>
 </html>
