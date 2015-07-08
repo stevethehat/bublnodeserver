@@ -12,9 +12,11 @@
 	},
 	"children": [
 		{
+			"id": "topPadding",
 			"size": { "height" : 40 }
 		},
 		{
+			"id": "mainRow",
 			"layout": { "style": "horizontal" },
 			"children":[
 				{
@@ -49,22 +51,32 @@
 											"type": "View",
 											"layout": { "style": "horizontal" },
 											"children": [
-												{ "id": "bubl1", "name": "Bubl 1",
+												{ "type": "LabelButton", "id": "addBubl", "content": { "icon": "fa-plus", "label": "New bubl", "size": 4 } },
+												{
+													"type": "View",
 													"children": [
-														{ "type": "Image", "url": "img/acricketer.png" },
-														{ "type": "Text", "content": "here is a cricketer 1" }
-													] 
+														{
+															"id": "elipsisTest",
+															"type": "View",
+															"size": { "width": 30, "height": 30 },
+															"position": { "top": 0, "right": 0 },
+															"style": { "background-color": "red" },
+															"actions": {
+																"click": "ListClick"
+															}
+														},		
+														{ "id": "bubl1", "name": "Bubl 1",
+															"children": [
+																{ "type": "Image", "url": "img/acricketer.png" },
+																{ "type": "Header", "content": "its a bubl about cricket" }
+															] 
+														}
+													]
 												},
 												{ "id": "bubl2", "name": "Bubl 1",
 													"children": [
-														{ "type": "Image", "url": "img/acricketer.png" },
-														{ "type": "Text", "content": "here is a cricketer 2" }
-													] 
-												},
-												{ "id": "bubl3", "name": "Bubl 1",
-													"children": [
-														{ "type": "Image", "url": "img/acricketer.png" },
-														{ "type": "Text", "content": "here is a cricketer 3" }
+														{ "type": "Image", "url": "img/stirling.png" },
+														{ "type": "Header", "content": "a bubl about football" }
 													] 
 												}		
 											]
@@ -84,6 +96,7 @@
 			]
 		},
 		{
+			"id": "bottomPadding",
 			"size": { "height" : 40 }
 		}
 	]
