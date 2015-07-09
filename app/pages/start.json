@@ -24,18 +24,20 @@
 				},
 				{
 					"id": "mainContentArea",
-					"size": { "width" : 1044, "height": 600 },
+					"size": { "width" : 1020, "height": 600 },
 					"style": { "border": "solid 1px #aaa"},
 					"children":[
 						{
 							"children": [
 								{
 									"type": "Header",
+									"id": "header",
 									"size": { "height": 60 },
 									"content": "Your bubls"
 								},
 								{
 									"type": "Text",
+									"id": "instructions",
 									"content": "Select the bubl you want to edit.",
 									"size": { "height": 30 }	
 								},
@@ -48,21 +50,27 @@
 										"size": { "width": 340, "height": 200 }
 									},
 									"children": [
-										{
-											"type": "View",
-											"layout": { "style": "horizontal" },
-											"children": [
-												{ "type": "LabelButton", "id": "addBubl", "content": { "icon": "fa-plus", "label": "New bubl", "size": 4 } },
-												{ 
-													"id": "bubl1",
-											 	 	"content": { "imageurl": "img/stirling2.png", "heading": "Raheem Stirling", "description": "A bubl about Raheem Stirling" } 
-												},		
-												{ 
-													"id": "bubl2", 
-													"content": { "imageurl": "img/acricketer.png", "heading": "Cricket", "description": "A bubl about how boring cricket is" } 
-												}		
-											]
-										}
+										{ "type": "LabelButton", "id": "addBubl", "content": { "icon": "fa-plus", "label": "New bubl", "size": 4 } },
+										{ 
+											"id": "bubl1",
+									 	 	"content": { "imageurl": "img/stirling2.png", "heading": "Raheem Stirling", "description": "A bubl about Raheem Stirling" } 
+										},		
+										{ 
+											"id": "bubl2", 
+											"content": { "imageurl": "img/acricketer.png", "heading": "Cricket", "description": "A bubl about how boring cricket is" } 
+										},		
+										{ 
+											"id": "bubl3",
+									 	 	"content": { "imageurl": "img/stirling.png", "heading": "Raheem Stirling", "description": "A bubl about Raheem Stirling" } 
+										},		
+										{ 
+											"id": "bubl4", 
+											"content": { "imageurl": "img/tennis.png", "heading": "Cricket", "description": "A bubl about how boring cricket is" } 
+										},		
+										{ 
+											"id": "bubl5", 
+									 	 	"content": { "imageurl": "img/cash.png", "heading": "Raheem Stirling", "description": "A bubl about Raheem Stirling" } 
+										}		
 									],
 									"actions": {
 										"click": "ListClick"
