@@ -33,7 +33,7 @@
 									"type": "Header",
 									"id": "header",
 									"size": { "height": 60 },
-									"content": "Your bubls"
+									"content": "$(username)'s bubls"
 								},
 								{
 									"type": "Text",
@@ -47,13 +47,22 @@
 									"dimensions": { "columns": 3, "rows": 2 },
 									"defaults": {
 										"type": "ThubmnailMenuItem",
-										"size": { "width": 340, "height": 200 }
+										"size": { "width": 340, "height": 200 },
+										"actions": {
+											"click": "ShowPage"										
+										},
+										"controls":[
+											{ "action": "Share", "icon": "fa-share-square-o", "label": "Share" },
+											{ "action": "Duplicate", "icon": "fa-files-o", "label": "Duplicate" },
+											{ "action": "Delete", "icon": "fa-trash-o", "label": "Delete" },
+											{ "action": "More", "icon": "fa-ellipsis-h", "label": "" }
+										]
 									},
 									"children": [
 										{ "type": "LabelButton", "id": "addBubl", "content": { "icon": "fa-plus", "label": "New bubl", "size": 4 } },
 										{ 
 											"id": "bubl1",
-									 	 	"content": { "imageurl": "img/stirling2.png", "heading": "Raheem Stirling", "description": "A bubl about Raheem Stirling" } 
+									 	 	"content": { "imageurl": "img/stirling2.png", "heading": "Raheem Stirling", "description": "A bubl about Raheem Stirling not being as good as he thinks he is." } 
 										},		
 										{ 
 											"id": "bubl2", 
@@ -65,11 +74,11 @@
 										},		
 										{ 
 											"id": "bubl4", 
-											"content": { "imageurl": "img/tennis.png", "heading": "Cricket", "description": "A bubl about how boring cricket is" } 
+											"content": { "imageurl": "img/tennis.png", "heading": "Tennis", "description": "A bubl some tennis player I imagine is qquite famous" } 
 										},		
 										{ 
 											"id": "bubl5", 
-									 	 	"content": { "imageurl": "img/cash.png", "heading": "Raheem Stirling", "description": "A bubl about Raheem Stirling" } 
+									 	 	"content": { "imageurl": "img/cash.png", "heading": "Raheem Stirling", "description": "A bubl about Raheem Stirling being a money grabbing twat" } 
 										}		
 									],
 									"actions": {
