@@ -59,7 +59,12 @@
 										]
 									},
 									"children": [
-										{ "type": "LabelButton", "id": "addBubl", "content": { "icon": "fa-plus", "label": "New bubl", "size": 4 } },
+										{ 
+											"type": "LabelButton", 
+											"id": "addBubl", 
+											"content": { "icon": "fa-plus", "label": "New bubl", "size": 4 },
+											"actions": { "click": "Add" } 
+										},
 										{ 
 											"id": "bubl1",
 									 	 	"content": { "imageurl": "img/stirling2.png", "heading": "Raheem Stirling", "description": "A bubl about Raheem Stirling not being as good as he thinks he is." } 
