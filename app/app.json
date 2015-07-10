@@ -17,7 +17,7 @@
 			"children": [
 				{
 					"type": "Header",
-					"content": "bubl"
+					"content": "bubl - $(currentpage)"
 				},		
 				{
 					"type": "Image",
