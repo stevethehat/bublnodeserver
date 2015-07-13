@@ -13,28 +13,21 @@
 
 	"children": [
 		{
-			"id": "Toolbar",
-			"class": "toolbar",
-			"layout": { "style": "horizontal" },
-			"size": { "height": 30 },
+			"id": "toolbar",
+			"layout": { "style": "horizontal", "align": "right" },
+			"size": { "height": 34 },
+			"style": { "background-color": "$(bublBackgroundColor)", "color": "$(bublColor)", "padding-top": 2 },
 			"defaults": {
-				"type": "Button",
-				"size": { "width": 100 }
+				"type": "LabelButton",
+				"size": { "width": 100 },
+				"actions": {
+					"click": "ToolbarClick"
+				}
 			},
 			"children": [
-				{
-					"content": "Home",
-					"id": "Home"
-				},
-				{
-					"content": "Button 2",
-					"id": "Button 2"
-				},
-				{
-					"type": "Text",
-					"content": "hello i am a text control",
-					"size": { "width": 200 }
-				}
+				{ "type": "LabelButton", "size": { "width": "max" }, "id": "back", "content": { "icon": "fa-angle-left", "label": "Back", "size": 2 } },
+				{ "type": "LabelButton", "id": "save", "content": { "icon": "fa-floppy-o", "label": "Save", "size": 2 } },
+				{ "type": "LabelButton", "id": "pages", "content": { "icon": "fa-file-o", "label": "Pages", "size": 2 } }
 			]
 		},
 		{
@@ -42,42 +35,9 @@
 			"layout": { "style": "horizontal" },
 			"children": [
 				{
-					"id": "Palette",
-					"size": { "width": 200 },
-					"children":[
-						{
-							"type": "ControlGroup",
-							"defaults": {
-								"type": "PaletteItem",
-								"size": { "height": 44 }
-							},
-							"children": [
-								{
-									"content": "Text",
-									"icon": "fa-file-text-o"
-								},
-								{
-									"content": "Image",
-									"icon": "fa-file-image-o"										},
-								{
-									"content": "Video",
-									"icon": "fa-file-movie-o"
-								},
-								{
-									"content": "Columns",
-									"icon": "fa-columns"
-								}
-							]
-						}
-					]
-				},
-				{
+					"type": "Editor",
 					"id": "BublEditor",
 					"color": "#999"
-				},
-				{
-					"id": "Properties",
-					"size": { "width": 200 }
 				}
 			]
 		}
